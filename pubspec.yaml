@@ -15,9 +15,9 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 # In iOS, build-name is used as CFBundleShortVersionString while build-number used as CFBundleVersion.
 # Read more about iOS versioning at
 # https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
-version:  1.0.0+1
+version: 1.0.0+1
 environment:
-  sdk:  ^3.5.0
+  sdk: ^3.5.0
 
 # Dependencies specify other packages that your package needs in order to work.
 # To automatically upgrade your package dependencies to the latest versions
@@ -26,16 +26,16 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
-  cupertino_icons:
+  cupertino_icons: null
+  dartz: ^0.10.1
   flutter:
     sdk: flutter
-  font_awesome_flutter: 
-  
-  go_router:
-  google_fonts: 
+  font_awesome_flutter: null
+  go_router: null
+  google_fonts: null
 
 dev_dependencies:
-  flutter_lints: 
+  flutter_lints: null
   flutter_test:
     sdk: flutter
 
