@@ -26,6 +26,7 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
+  bloc: ^8.1.4
   cupertino_icons: null
   dartz: ^0.10.1
   dio: ^5.7.0
@@ -38,11 +39,11 @@ dependencies:
   hive_flutter: ^1.1.0
 
 dev_dependencies:
-  hive_generator:
-  build_runner:
+  build_runner: null
   flutter_lints: null
   flutter_test:
     sdk: flutter
+  hive_generator: null
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
