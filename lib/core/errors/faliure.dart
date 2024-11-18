@@ -1,1 +1,3 @@
-class Faliure {}
+abstract class Faliure {}
+
+class ServerFaliure extends Faliure {}
