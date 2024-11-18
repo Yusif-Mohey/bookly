@@ -1,19 +1,21 @@
 import 'package:bookly/Features/home/domain/entities/book_entity.dart';
+import 'package:bookly/constants.dart';
+import 'package:hive/hive.dart';
 
 abstract class HomeLocalDataSource {
-  Future<List<BookEntity>> fetchFeatureBooks();
-  Future<List<BookEntity>> fetchNewesteBooks();
+  List<BookEntity> fetchFeatureBooks();
+  List<BookEntity> fetchNewesteBooks();
 }
 
 class HomeLocalDataSourceImp extends HomeLocalDataSource {
   @override
-  Future<List<BookEntity>> fetchFeatureBooks() {
-    // TODO: implement fetchFeatureBooks
-    throw UnimplementedError();
+  List<BookEntity> fetchFeatureBooks() {
+    var box = Hive.box<BookEntity>(kFeatuerdBooks);
+    return box.values.toList();
   }
 
   @override
-  Future<List<BookEntity>> fetchNewesteBooks() {
+  List<BookEntity> fetchNewesteBooks() {
     // TODO: implement fetchNewesteBooks
     throw UnimplementedError();
   }
