@@ -28,6 +28,7 @@ environment:
 dependencies:
   cupertino_icons: null
   dartz: ^0.10.1
+  dio: ^5.7.0
   flutter:
     sdk: flutter
   font_awesome_flutter: null
