@@ -1,8 +1,13 @@
+import 'package:bookly/Features/home/data/repos/home_repo_imp.dart';
 import 'package:bookly/Features/home/domain/entities/book_entity.dart';
+import 'package:bookly/Features/home/domain/use_cases/fetch_feature_books_use_case.dart';
+import 'package:bookly/Features/home/domain/use_cases/fetch_newest_books_use_case.dart';
+import 'package:bookly/Features/home/presentation/manager/feature_books_cubit/feature_books_cubit.dart';
+import 'package:bookly/Features/home/presentation/manager/newtes_books_cubit/newest_books_cubit.dart';
 import 'package:bookly/constants.dart';
-import 'package:bookly/core/utils/app_router.dart';
+import 'package:bookly/core/utils/functions/set_up_services_locator.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
 void main() async {
@@ -18,14 +23,24 @@ class Bookly extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp.router(
-      routerConfig: AppRouter.router,
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData.dark().copyWith(
-        scaffoldBackgroundColor: kPrimaryColor,
-        textTheme: GoogleFonts.montserratAlternatesTextTheme(
-            ThemeData.dark().textTheme),
-      ),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) {
+            return FeatureBooksCubit(
+              FetchFeatureBooksUseCase(getIt.get<HomeRepoImp>()),
+            );
+          },
+        ),
+        BlocProvider(
+          create: (context) {
+            return NewestBooksCubit(
+              FetchNewestBooksUseCase(getIt.get<HomeRepoImp>()),
+            );
+          },
+        ),
+      ],
+      child: Container(),
     );
   }
 }
