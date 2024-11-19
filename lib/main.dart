@@ -15,9 +15,10 @@ import 'package:hive_flutter/hive_flutter.dart';
 void main() async {
   await Hive.initFlutter();
   Hive.registerAdapter(BookEntityAdapter());
-  await Hive.openBox(kFeatuerdBox);
-  await Hive.openBox(kNewestBox);
+  await Hive.openBox<BookEntity>(kFeatuerdBox);
+  await Hive.openBox<BookEntity>(kNewestBox);
   Bloc.observer = SimpleBlocBoserver();
+  setUpServicesLocator();
   runApp(const Bookly());
 }
 
@@ -31,8 +32,10 @@ class Bookly extends StatelessWidget {
           BlocProvider(
             create: (context) {
               return FeatureBooksCubit(
-                FetchFeatureBooksUseCase(getIt.get<HomeRepoImp>()),
-              );
+                FetchFeatureBooksUseCase(
+                  getIt.get<HomeRepoImp>(),
+                ),
+              )..featchFeatureBooksUseCase();
             },
           ),
           BlocProvider(
@@ -48,8 +51,6 @@ class Bookly extends StatelessWidget {
           debugShowCheckedModeBanner: false,
           theme: ThemeData.dark().copyWith(
             scaffoldBackgroundColor: kPrimaryColor,
-            // textTheme: GoogleFonts.montserratAlternatesTextTheme(
-            //     ThemeData.dark().textTheme),
           ),
         ));
   }

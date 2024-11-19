@@ -42,9 +42,9 @@ class ServerFaliure extends Faliure {
       return ServerFaliure('There was a problem with server, please try later');
     } else if (statusCode == 400 || statusCode == 401 || statusCode == 403) {
       return ServerFaliure(
-          responose['error']['mesage']); //the changer one for each Api
+          responose['error']['message']); //the changer one for each Api
     } else {
-      return ServerFaliure('There was an error ,please try agin');
+      return ServerFaliure('There was an error ,please try agin ??');
     }
   }
 }
