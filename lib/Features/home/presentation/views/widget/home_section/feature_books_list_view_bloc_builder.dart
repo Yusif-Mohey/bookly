@@ -23,24 +23,16 @@ class _FeaturedBooksListViewBlocBuilderState
         if (state is FeatureBooksSucess) {
           books.addAll(state.books);
         }
-        if (state is FeatureBooksPaginationFailure) {
+        if (state is FeatureBooksPaginationFailure ||
+            state is FeatureBooksFailure) {
           ScaffoldMessenger.of(context).showSnackBar(errorSnackBar());
         }
       },
       builder: (context, state) {
         if (state is FeatureBooksSucess ||
+            state is FeatureBooksFailure ||
             state is FeatureBooksPaginationFailure) {
           return FeaturedBooksListView(books: books);
-        } else if (state is FeatureBooksPaginationLoading) {
-          return FeaturedBookListViewLoagingIndicator();
-        } else if (state is FeatureBooksFailure) {
-          // ignore: avoid_print
-          print(state.errMessage.toString());
-          ScaffoldMessenger.of(context).showSnackBar(errorSnackBar());
-          return Text(state.errMessage);
-          // return FeaturedBookListViewLoagingIndicator();
-        } else if (state is FeatureBooksInitial) {
-          return Text(state.toString());
         } else {
           return FeaturedBookListViewLoagingIndicator();
         }
