@@ -16,6 +16,7 @@ class FeaturedBooksListView extends StatefulWidget {
 class _FeaturedBooksListViewState extends State<FeaturedBooksListView> {
   late final ScrollController _scrollController;
   int nextPage = 1;
+  bool isLoading = false;
   @override
   void initState() {
     _scrollController = ScrollController();
@@ -23,18 +24,22 @@ class _FeaturedBooksListViewState extends State<FeaturedBooksListView> {
     super.initState();
   }
 
-  void _scrollListener() {
+  void _scrollListener() async {
     var currentPostion = _scrollController.position.pixels;
     var maxScrollLenght = _scrollController.position.maxScrollExtent;
     if (currentPostion >= 0.7 * maxScrollLenght) {
-      BlocProvider.of<FeatureBooksCubit>(context)
-          .featchFeatureBooks(pageNumber: nextPage++);
+      if (!isLoading) {
+        isLoading = true;
+        await BlocProvider.of<FeatureBooksCubit>(context)
+            .featchFeatureBooks(pageNumber: nextPage++);
+        isLoading = false;
+      }
     }
   }
 
   @override
   void dispose() {
-    _scrollController.dispose;
+    _scrollController.dispose();
     super.dispose();
   }
 
@@ -43,17 +48,23 @@ class _FeaturedBooksListViewState extends State<FeaturedBooksListView> {
     return SizedBox(
       height: MediaQuery.of(context).size.height * .3,
       child: ListView.builder(
-          controller: _scrollController,
-          scrollDirection: Axis.horizontal,
-          itemCount: widget.books.length, //dont forget this shit
-          itemBuilder: (context, index) {
-            return Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 8),
-              child: CustomBookImage(
-                image: widget.books[index].image ?? '',
-              ),
-            );
-          }),
+        controller: _scrollController,
+        scrollDirection: Axis.horizontal,
+        itemCount: widget.books.length, //dont forget this shit
+        itemBuilder: (context, index) {
+          return Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 8),
+            child: CustomBookImage(
+              image: widget.books[index].image ??
+                  "https://via.placeholder.com/150", //fix that
+            ),
+          );
+        },
+      ),
     );
   }
 }
+// image error still there i don`t know how can i fix it 
+// it happends when we give the fourth request from api 
+// so i can sey the null check operator that make the error in the book model ,but i dont sure of that.
+// ask some one can help us like Rasmy---Amir---Shaffra.

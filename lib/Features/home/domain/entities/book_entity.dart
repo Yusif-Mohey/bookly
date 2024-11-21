@@ -23,7 +23,7 @@ class BookEntity {
 
   BookEntity(
       {required this.bookId,
-      required this.image,
+      this.image,
       required this.title,
       required this.autherName,
       required this.price,

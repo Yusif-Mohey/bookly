@@ -10,12 +10,14 @@ class CustomBookImage extends StatelessWidget {
     return AspectRatio(
       aspectRatio: 2.6 / 4,
       child: ClipRRect(
-        borderRadius: BorderRadius.circular(16),
-        child: CachedNetworkImage(
-          imageUrl: image,
-          fit: BoxFit.fill,
-        ),
-      ),
+          borderRadius: BorderRadius.circular(16),
+          child: CachedNetworkImage(
+            imageUrl: image,
+            placeholder: (context, url) =>
+                CircularProgressIndicator(), //chatGPT suggestion
+            errorWidget: (context, url, error) =>
+                Icon(Icons.error), //chatGPT suggestion
+          )),
     );
   }
 }
