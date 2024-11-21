@@ -13,7 +13,8 @@ class HomeRepoImp extends HomeRepo {
   HomeRepoImp(
       {required this.homeLocalDataSource, required this.remoteDataSource});
   @override
-  Future<Either<Faliure, List<BookEntity>>> fetchFeatureBooks() async {
+  Future<Either<Faliure, List<BookEntity>>> fetchFeatureBooks(
+      {int pageNumber = 0}) async {
     //don`t forget { try -> catch }
     try {
       List<BookEntity> books;
