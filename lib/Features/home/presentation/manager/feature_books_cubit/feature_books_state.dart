@@ -6,10 +6,14 @@ final class FeatureBooksInitial extends FeatureBooksState {}
 
 final class FeatureBooksLoading extends FeatureBooksState {}
 
-final class FeatureBooksFaluire extends FeatureBooksState {
+final class FeatureBooksPaginationLoading extends FeatureBooksState {}
+
+final class FeatureBooksPaginationFailure extends FeatureBooksState {}
+
+final class FeatureBooksFailure extends FeatureBooksState {
   final String errMessage;
 
-  FeatureBooksFaluire(this.errMessage);
+  FeatureBooksFailure(this.errMessage);
 }
 
 final class FeatureBooksSucess extends FeatureBooksState {
