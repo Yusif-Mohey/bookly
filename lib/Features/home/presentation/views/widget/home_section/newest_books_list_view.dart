@@ -7,6 +7,7 @@ import 'newest_books_list_view_item.dart';
 class NewestBooksListView extends StatefulWidget {
   const NewestBooksListView({super.key, required this.books});
   final List<BookEntity> books;
+
   @override
   State<NewestBooksListView> createState() => _NewestBooksListViewState();
 }
@@ -46,7 +47,7 @@ class _NewestBooksListViewState extends State<NewestBooksListView> {
     return ListView.builder(
       physics: const NeverScrollableScrollPhysics(),
       controller: _scrollController,
-      padding: EdgeInsets.zero,
+      padding: EdgeInsets.symmetric(horizontal: 12),
       itemCount: widget.books.length,
       itemBuilder: (context, index) {
         return Padding(

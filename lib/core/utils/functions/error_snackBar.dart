@@ -8,6 +8,6 @@ SnackBar errorSnackBar() {
     ),
     backgroundColor: Colors.red,
     behavior: SnackBarBehavior.floating, // Optional: makes it float
-    duration: const Duration(seconds: 3), // Duration for visibility
+    duration: const Duration(milliseconds: 3500), // Duration for visibility
   );
 }

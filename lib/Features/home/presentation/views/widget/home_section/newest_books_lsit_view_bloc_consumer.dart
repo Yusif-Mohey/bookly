@@ -19,6 +19,7 @@ class _NewestBooksLsitViewBlocConsumerState
   List<BookEntity> books = [];
   @override
   Widget build(BuildContext context) {
+    // return NewestBooksListViewLoadingIndicator();
     return BlocConsumer<NewestBooksCubit, NewestBooksState>(
       listener: (context, state) {
         if (state is NewestBooksSucess) {
