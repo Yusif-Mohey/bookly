@@ -1,4 +1,4 @@
-import 'package:bookly/Features/home/presentation/views/widget/home_section/newest_books_list_view_item.dart';
+import 'package:bookly/Features/home/presentation/views/widget/home_section/newest_books/newest_books_list_view_item.dart';
 import 'package:bookly/Features/search/presentation/views/widget/custom_search_text_field.dart';
 import 'package:bookly/core/utils/styles.dart';
 import 'package:flutter/material.dart';

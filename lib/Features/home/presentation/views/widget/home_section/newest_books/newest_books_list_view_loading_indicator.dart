@@ -1,4 +1,4 @@
-import 'package:bookly/Features/home/presentation/views/widget/home_section/newest_book_loading_indicator_item.dart';
+import 'package:bookly/Features/home/presentation/views/widget/home_section/newest_books/newest_book_loading_indicator_item.dart';
 import 'package:flutter/material.dart';
 
 class NewestBooksListViewLoadingIndicator extends StatelessWidget {

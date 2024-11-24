@@ -1,6 +1,6 @@
 import 'package:bookly/Features/home/presentation/views/widget/custom_app_bar.dart';
-import 'package:bookly/Features/home/presentation/views/widget/home_section/feature_books_list_view_bloc_consumer.dart';
-import 'package:bookly/Features/home/presentation/views/widget/home_section/newest_books_lsit_view_bloc_consumer.dart';
+import 'package:bookly/Features/home/presentation/views/widget/home_section/feature_books/feature_books_list_view_bloc_consumer.dart';
+import 'package:bookly/Features/home/presentation/views/widget/home_section/newest_books/newest_books_lsit_view_bloc_consumer.dart';
 import 'package:bookly/core/utils/styles.dart';
 import 'package:flutter/material.dart';
 

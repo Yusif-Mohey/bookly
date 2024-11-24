@@ -3,7 +3,7 @@ import 'package:bookly/Features/home/presentation/manager/feature_books_cubit/fe
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import 'custom_book_image.dart';
+import '../custom_book_image.dart';
 
 class FeaturedBooksListView extends StatefulWidget {
   const FeaturedBooksListView({super.key, required this.books});
