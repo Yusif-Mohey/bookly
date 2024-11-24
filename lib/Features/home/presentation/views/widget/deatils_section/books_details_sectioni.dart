@@ -19,6 +19,7 @@ class BookDetailsSection extends StatelessWidget {
           ),
           child: const CustomBookImage(
             image: '',
+            size: 2.6 / 4,
           ),
         ),
         const SizedBox(
@@ -46,7 +47,9 @@ class BookDetailsSection extends StatelessWidget {
         const SizedBox(
           height: 18,
         ),
-        const BookRating(
+        BookRating(
+          books: [],
+          index: 0,
           mainAxisAlignment: MainAxisAlignment.center,
         ),
         const SizedBox(

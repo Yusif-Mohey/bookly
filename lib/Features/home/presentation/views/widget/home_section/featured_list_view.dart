@@ -55,6 +55,7 @@ class _FeaturedBooksListViewState extends State<FeaturedBooksListView> {
           return Padding(
             padding: const EdgeInsets.symmetric(horizontal: 8),
             child: CustomBookImage(
+              size: 2.6 / 4,
               image: widget.books[index].image ??
                   "https://via.placeholder.com/150", //fix that
             ),

@@ -1,4 +1,4 @@
-import 'package:bookly/Features/home/presentation/views/widget/home_section/best_seller_list_view_item.dart';
+import 'package:bookly/Features/home/presentation/views/widget/home_section/newest_books_list_view_item.dart';
 import 'package:bookly/Features/search/presentation/views/widget/custom_search_text_field.dart';
 import 'package:bookly/core/utils/styles.dart';
 import 'package:flutter/material.dart';
@@ -42,9 +42,9 @@ class SearchResultListView extends StatelessWidget {
       padding: EdgeInsets.zero,
       itemCount: 10,
       itemBuilder: (context, index) {
-        return const Padding(
-          padding: EdgeInsets.symmetric(vertical: 10),
-          child: BookListViewItem(),
+        return Padding(
+          padding: const EdgeInsets.symmetric(vertical: 10),
+          child: NewestBooksListViewItem(books: [], index: index),
         );
       },
     );

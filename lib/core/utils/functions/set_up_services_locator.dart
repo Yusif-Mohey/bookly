@@ -16,7 +16,7 @@ void setUpServicesLocator() {
   getIt.registerSingleton<HomeRepoImp>(
     HomeRepoImp(
       homeLocalDataSource: HomeLocalDataSourceImp(),
-      remoteDataSource: HomeRemoteDataSourceImp(getIt.get<AppService>()),
+      homeRemoteDataSource: HomeRemoteDataSourceImp(getIt.get<AppService>()),
     ),
   );
 }
